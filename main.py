@@ -23,7 +23,6 @@ from models.explainability.shap_engine import (compute_shap_tree,
                                                 get_top_features,
                                                 plot_shap_bar)
 from models.explainability.mitre_mapper import map_to_mitre, generate_full_report
-from models.rl_agent.safety_shield import SafetyShield
 from evaluation.metrics import (compute_metrics, print_table,
                                 plot_confusion_matrix,
                                 plot_comparison)
@@ -105,7 +104,7 @@ def phase_train():
         X_tr, X_va, X_te, y_tr, y_va, y_te, _, _, _ = preprocess(
             data_dir=DATA_DIR,
             file_list=DATA_FILES,
-            sample_size=1.0  # Change to 0.1 for faster testing
+            sample_size=0.05  # Change to 0.1 for faster testing
         )
     except Exception as e:
         print(f'\n[ERROR] Failed to preprocess data:')
